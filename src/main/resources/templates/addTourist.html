@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Turysta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div style="width: 600px; margin-top: 50px; margin-left: auto; margin-right: auto; padding: 20px;">
+
+    <form action="/tourist" method="post" th:object="${touristForm}">
+        <input th:field="*{firstname}" type="text" class="form-control" placeholder="Imię">
+        <input th:field="*{lastname}" type="text" class="form-control" placeholder="Nazwisko">
+        <input th:field="*{country}" type="text" class="form-control" placeholder="Państwo">
+        <input th:field="*{remarks}" type="text" class="form-control" placeholder="Notatki">
+
+        <button type="submit" class="btn btn-default">Dodaj turyste</button>
+
+    </form>
+</div>
+</body>
+</html>
