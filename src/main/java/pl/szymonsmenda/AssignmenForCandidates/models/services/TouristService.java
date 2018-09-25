@@ -23,10 +23,10 @@ public class TouristService{
 
     private TouristEntity createEntityFromForm(TouristForm touristForm) {
         TouristEntity touristEntity = new TouristEntity();
-        touristEntity.setFirstname(touristEntity.getFirstname());
-        touristEntity.setLastname(touristEntity.getLastname());
-        touristEntity.setCountry(touristEntity.getCountry());
-        touristEntity.setRemarks(touristEntity.getRemarks());
+        touristEntity.setFirstname(touristForm.getFirstname());
+        touristEntity.setLastname(touristForm.getLastname());
+        touristEntity.setCountry(touristForm.getCountry());
+        touristEntity.setRemarks(touristForm.getRemarks());
         return touristEntity;
     }
 }
