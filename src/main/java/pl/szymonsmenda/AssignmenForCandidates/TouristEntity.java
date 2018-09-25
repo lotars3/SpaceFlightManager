@@ -11,13 +11,13 @@ public class TouristEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @JoinColumn(name = "firstname")
+    @Column(name = "firstname")
     private String firstname;
-    @JoinColumn(name = "lastname")
+    @Column(name = "lastname")
     private String lastname;
-    @JoinColumn(name = "country")
+    @Column(name = "country")
     private String country;
-    @JoinColumn(name = "remarks")
+    @Column(name = "remarks")
     private String remarks;
     // private String dateOfBirth;
     //private String Listofflights; //TODO:  List of flights, Hash?

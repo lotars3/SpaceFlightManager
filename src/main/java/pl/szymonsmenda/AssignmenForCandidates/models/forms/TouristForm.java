@@ -11,6 +11,9 @@ public class TouristForm{
     //private String Listofflights; //TODO:  List of flights, Hash?
 
 
+    public TouristForm() {
+    }
+
     public TouristForm(String firstname, String lastname, String country, String remarks) {
         this.firstname = firstname;
         this.lastname = lastname;
