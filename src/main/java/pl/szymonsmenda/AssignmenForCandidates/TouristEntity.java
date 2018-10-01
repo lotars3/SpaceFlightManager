@@ -1,9 +1,10 @@
 package pl.szymonsmenda.AssignmenForCandidates;
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,10 +22,9 @@ public class TouristEntity{
     private String country;
     @Column(name = "remarks")
     private String remarks;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Temporal(TemporalType.DATE)
-    @Column(name = "dateOfBirth")
-    private Date birthday;
+
+//    @Column(name = "dateOfBirth")
+//    private LocalDate birthday;
     //private String Listofflights; //TODO:  List of flights, Hash?
 
 }

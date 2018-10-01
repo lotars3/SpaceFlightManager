@@ -6,6 +6,8 @@ import pl.szymonsmenda.AssignmenForCandidates.models.forms.TouristForm;
 import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
 import pl.szymonsmenda.AssignmenForCandidates.models.repositories.TouristRepository;
 
+import java.util.List;
+
 @Service
 public class TouristService{
 
@@ -27,7 +29,11 @@ public class TouristService{
         touristEntity.setLastname(touristForm.getLastname());
         touristEntity.setCountry(touristForm.getCountry());
         touristEntity.setRemarks(touristForm.getRemarks());
-        touristEntity.setBirthday(touristForm.getBirthday());
+//        touristEntity.setBirthday(touristForm.getBirthday());
         return touristEntity;
     }
+
+    public List<TouristEntity> getAll(){return touristRepository.findAll(); }
+
+    public TouristEntity getAllDetails(int id) { return touristRepository.findById(id).get();}
 }

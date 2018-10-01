@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły turysty</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px">
+    Imię: <h4 th:text="${touristDetails.getFirstname()}"></h4>
+    Nazwisko: <h4 th:text="${touristDetails.getLastname()}"></h4>
+    Państwo: <h1 th:text="${touristDetails.getCountry()}"></h1>
+    Uwagi: <h1 th:text="${touristDetails.getRemarks()}"></h1>
+
+</div>
+<div style="text-align: center">
+    <button onclick="javascript:location.href = '/tourist'" class="btn btn-primary">Powrót do menu dodawania nowego
+        turysty
+    </button>
+</div>
+<div style="text-align: center; padding: 5px">
+    <button  onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
+</div>
+
+
+</body>
+</html>

@@ -1,7 +1,8 @@
 package pl.szymonsmenda.AssignmenForCandidates.models.forms;
 
 import lombok.Data;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Data
 public class TouristForm{
@@ -10,7 +11,8 @@ public class TouristForm{
     private String lastname;
     private String country;
     private String remarks;
-    private Date birthday;
+
+//    private LocalDate birthday;
 //    private String Listofflights; //TODO:  List of flights, Hash?
 
 
