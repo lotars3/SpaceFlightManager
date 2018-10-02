@@ -21,7 +21,7 @@ public class TouristController{
     }
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -37,19 +37,19 @@ public class TouristController{
         return "redirect:/";
     }
 
-    @GetMapping ("/allTourist")
-    public String allTourist(Model model){
-        model.addAttribute("tourists", touristService.getAll() );
+    @GetMapping("/allTourist")
+    public String allTourist(Model model) {
+        model.addAttribute("tourists", touristService.getAll());
         return "allTourist";
     }
 
     @GetMapping("/allTourist/{id}")
     public String allContacts(@PathVariable("id") int id,
-                              Model model){
+                              Model model) {
         model.addAttribute("touristDetails", touristService.getAllDetails(id));
         return "showTouristDetails";
-
-
     }
+
+    @GetMapping("/allTourist/delete/{id}")
 
 }
