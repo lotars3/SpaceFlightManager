@@ -7,6 +7,7 @@ import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
 import pl.szymonsmenda.AssignmenForCandidates.models.repositories.TouristRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TouristService{
@@ -36,4 +37,21 @@ public class TouristService{
     public List<TouristEntity> getAll(){return touristRepository.findAll(); }
 
     public TouristEntity getAllDetails(int id) { return touristRepository.findById(id).get();}
+
+    public void deleteTourist(int touristId){
+        touristRepository.deleteById(touristId);
+    }
+
+    public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
+        TouristForm touristForm = new TouristForm();
+        touristForm.setFirstname(entityOptional.get().getFirstname());
+        touristForm.setLastname(entityOptional.get().getLastname());
+        touristForm.setCountry(entityOptional.get().getCountry());
+        touristForm.setRemarks(entityOptional.get().getRemarks());
+        return touristForm;
+    }
+
+    public Optional<TouristEntity> getTouristById(int id){
+        return touristRepository.findById(id);
+    }
 }

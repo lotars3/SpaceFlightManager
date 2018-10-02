@@ -13,6 +13,19 @@
     Państwo: <h1 th:text="${touristDetails.getCountry()}"></h1>
     Uwagi: <h1 th:text="${touristDetails.getRemarks()}"></h1>
 
+    <!--<div th:if="${userObject.getUserEntity().getId() == postDetails.getUser().getId()}">-->
+
+
+
+</div>
+
+<div>
+    <button th:onclick="'javascript:location.href =\'/delete/' + ${touristDetails.getId()} + '\''"
+            class="btn btn-danger" style="width:40%">Usuń post
+    </button>
+    <button th:onclick="'javascript:location.href =\'/editTourist/' + ${touristDetails.getId()} + '\''"
+            class="btn btn-primary" style="width:40%">Edytuj post
+    </button>
 </div>
 <div style="text-align: center">
     <button onclick="javascript:location.href = '/tourist'" class="btn btn-primary">Powrót do menu dodawania nowego
@@ -20,7 +33,7 @@
     </button>
 </div>
 <div style="text-align: center; padding: 5px">
-    <button  onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
+    <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
 </div>
 
 

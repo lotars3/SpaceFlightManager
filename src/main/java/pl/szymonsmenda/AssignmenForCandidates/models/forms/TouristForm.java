@@ -2,7 +2,6 @@ package pl.szymonsmenda.AssignmenForCandidates.models.forms;
 
 import lombok.Data;
 
-import java.time.LocalDate;
 
 @Data
 public class TouristForm{

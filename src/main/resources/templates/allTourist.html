@@ -17,6 +17,13 @@
         </h6>
     </div>
 </div>
+
+<!--<div th:if="${touristDeleted != null}" class="alert alert-success">-->
+    <!--<strong th:text="${touristDeleted}"></strong>-->
+<!--</div>-->
+
+<!--<div th:if="${touristUpdate != null}" class="alert alert-success">-->
+    <!--<strong th:text="${touristUpdate}"></strong>-->
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
     <div class=" alert alert-danger" th:each="tourist : ${tourists}">
         <a th:href="'allTourist/'+${tourist.getId()}">
