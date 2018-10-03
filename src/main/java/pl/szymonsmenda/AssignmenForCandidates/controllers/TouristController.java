@@ -26,19 +26,21 @@ public class TouristController{
 
     @GetMapping("/")
     public String index() {
-        return "index";
+        return "welcome";
     }
 
-    @GetMapping("/tourist")
+    @GetMapping("/addTourist")
     public String tourist(Model model) {
         model.addAttribute("touristForm", new TouristForm());
         return "addTourist";
     }
 
-    @PostMapping("/tourist")
-    public String tourist(@ModelAttribute("touristForm") TouristForm touristForm) {
+    @PostMapping("/addTourist")
+    public String tourist(@ModelAttribute("touristForm") TouristForm touristForm,
+                          RedirectAttributes redirectAttributes) {
         touristService.addTourist(touristForm);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
+        return "redirect:/allTourist";
     }
 
     @GetMapping("/allTourist")
@@ -58,7 +60,7 @@ public class TouristController{
     public String deleteTourist(@PathVariable("id") int touristId,
                                 RedirectAttributes redirectAttributes) {
         touristService.deleteTourist(touristId);
-//        redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
+        redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
         return "redirect:/allTourist";
     }
 

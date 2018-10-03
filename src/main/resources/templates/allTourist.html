@@ -18,21 +18,32 @@
     </div>
 </div>
 
-<!--<div th:if="${touristDeleted != null}" class="alert alert-success">-->
-    <!--<strong th:text="${touristDeleted}"></strong>-->
-<!--</div>-->
+<div style="width: 400px; margin-top: 10px; margin-left: auto; margin-right: auto">
+    <div th:if="${touristDeleted != null}" class="alert alert-danger">
+        <strong th:text="${touristDeleted}"></strong>
+    </div>
+    <div th:if="${touristAdd != null}" class="alert alert-success">
+        <strong th:text="${touristAdd}"></strong>
+    </div>
 
-<!--<div th:if="${touristUpdate != null}" class="alert alert-success">-->
-    <!--<strong th:text="${touristUpdate}"></strong>-->
+</div>
+
+
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
-    <div class=" alert alert-danger" th:each="tourist : ${tourists}">
+    <div class=" alert alert-info" th:each="tourist : ${tourists}">
         <a th:href="'allTourist/'+${tourist.getId()}">
             Nazwisko  <h3 class="alert-heading" th:text="${tourist.getLastname()}"></h3>
         </a>
     </div>
 </div>
 <div style="text-align: center">
-    <button  onclick="javascript:location.href = '/tourist'" class="btn btn-primary">Powrót do menu dodawania nowego turysty</button>
+    <button  onclick="javascript:location.href = '/addTourist'" class="btn btn-primary">Dodaj nowego turystę</button>
 </div>
+
+<div style="text-align: center">
+    <button onclick="javascript:location.href = '/'" class="btn btn-success">Powrót do WelcomePage</button>
+</div>
+
+
 </body>
 </html>

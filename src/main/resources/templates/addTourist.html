@@ -13,7 +13,7 @@
             <strong> Menu dodawanie nowego turysty do bazy </strong>
         </h1>
     </div>
-    <form action="/tourist" method="post" th:object="${touristForm}">
+    <form action="/addTourist" method="post" th:object="${touristForm}">
         <input th:field="*{firstname}" type="text" class="form-control" placeholder="Imię">
         <input th:field="*{lastname}" type="text" class="form-control" placeholder="Nazwisko">
         <input th:field="*{country}" type="text" class="form-control" placeholder="Państwo">
