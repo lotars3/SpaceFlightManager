@@ -56,7 +56,7 @@ public class TouristController{
         return "showTouristDetails";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deleteTourist/{id}")
     public String deleteTourist(@PathVariable("id") int touristId,
                                 RedirectAttributes redirectAttributes) {
         touristService.deleteTourist(touristId);

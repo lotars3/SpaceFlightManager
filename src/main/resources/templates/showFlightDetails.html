@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły lotu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px">
+    Numer lotu: <h4 th:text="${flightDetails.getFlightNumber()}"></h4>
+
+    Cena biletu: <h1 th:text="${flightDetails.getFlightPrice()}"></h1>
+
+
+
+
+</div>
+
+<div style="text-align: center">
+    <button th:onclick="'javascript:location.href =\'/deleteFlight/' + ${flightDetails.getFlightNumber()} + '\''"
+            class="btn btn-danger" style="width:40%">Usuń lot
+    </button>
+    <!--<button th:onclick="'javascript:location.href =\'/editFlight/' + ${flightDetails.getFlightNo()} + '\''"-->
+            <!--class="btn btn-primary" style="width:40%">Edytuj lot-->
+    <!--</button>-->
+</div>
+<div style="text-align: center">
+    <button onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Powrót do menu dodawania nowego
+        lotu
+    </button>
+</div>
+<div style="text-align: center; padding: 5px">
+    <button onclick="javascript:location.href = '/allFlight'" class="btn btn-primary">Pokaż listę lotów</button>
+</div>
+
+
+</body>
+</html>
