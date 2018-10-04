@@ -18,7 +18,7 @@
 </div>
 
 <div style="text-align: center">
-    <button th:onclick="'javascript:location.href =\'/deleteFlight/' + ${flightDetails.getFlightNumber()} + '\''"
+    <button th:onclick="'javascript:location.href =\'/deleteFlight/' + ${flightDetails.getId()} + '\''"
             class="btn btn-danger" style="width:40%">Usuń lot
     </button>
     <!--<button th:onclick="'javascript:location.href =\'/editFlight/' + ${flightDetails.getFlightNo()} + '\''"-->

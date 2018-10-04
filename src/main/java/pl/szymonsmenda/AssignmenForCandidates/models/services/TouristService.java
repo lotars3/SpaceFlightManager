@@ -36,7 +36,7 @@ public class TouristService{
 
     public List<TouristEntity> getAll(){return touristRepository.findAll(); }
 
-    public TouristEntity getAllDetails(int id) { return touristRepository.findById(id).get();}
+    public TouristEntity getAllDetails(int touristId) { return touristRepository.findById(touristId).get();}
 
     public void deleteTourist(int touristId){
         touristRepository.deleteById(touristId);
@@ -51,7 +51,7 @@ public class TouristService{
         return touristForm;
     }
 
-    public Optional<TouristEntity> getTouristById(int id){
-        return touristRepository.findById(id);
+    public Optional<TouristEntity> getTouristById(int touristId){
+        return touristRepository.findById(touristId);
     }
 }

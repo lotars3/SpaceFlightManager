@@ -14,15 +14,15 @@
         </h1>
     </div>
     <form action="/addFlight" method="post" th:object="${flightForm}">
-        <input th:field="*{flightNumber}" type="text" class="form-control" placeholder="Imię">
-        <input th:field="*{flightPrice}" type="text" class="form-control" placeholder="Nazwisko">
+        <input th:field="*{flightNumber}" type="text" class="form-control" placeholder="Numer Lotu">
+        <input th:field="*{flightPrice}" type="text" class="form-control" placeholder="Cena lotu">
 
-        <button type="submit" class="btn btn-default">Dodaj turyste</button>
+        <button type="submit" class="btn btn-default">Dodaj lot</button>
 
     </form>
 
     <div style="text-align: center">
-        <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
+        <button onclick="javascript:location.href = '/allFlight'" class="btn btn-primary">Pokaż listę lotów</button>
     </div>
 </div>
 </body>

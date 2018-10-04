@@ -32,7 +32,7 @@
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
     <div class=" alert alert-info" th:each="flight : ${flights}">
         <a th:href="'allFlight/'+${flight.getId()}">
-            Lot  <h3 class="alert-heading" th:text="${flight.getFlightNo()}"></h3>
+            Lot  <h3 class="alert-heading" th:text="${flight.getFlightNumber()}"></h3>
         </a>
     </div>
 </div>

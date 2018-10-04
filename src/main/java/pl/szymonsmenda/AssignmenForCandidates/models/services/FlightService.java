@@ -35,8 +35,8 @@ public class FlightService{
         return flightRepository.findAll();
     }
 
-    public FlightEntity getAllDetails(int id) {
-        return flightRepository.findById(id).get();
+    public FlightEntity getAllDetails(int flightId) {
+        return flightRepository.findById(flightId).get();
     }
 
     public void deleteFlight(int flightId) {

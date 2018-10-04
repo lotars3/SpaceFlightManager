@@ -23,13 +23,13 @@ public class FlightController{
     }
 
     @GetMapping("/addFlight")
-    public String flight(Model model) {
+    public String addFlight(Model model) {
         model.addAttribute("flightForm", new FlightForm());
         return "addFlight";
     }
 
     @PostMapping("/addFlight")
-    public String flight(@ModelAttribute("flightForm") FlightForm flightForm,
+    public String addFlight(@ModelAttribute("flightForm") FlightForm flightForm,
                             RedirectAttributes redirectAttributes) {
         flightService.addFlight(flightForm);
         redirectAttributes.addFlashAttribute("flightAdd", " Lot został dodany");
@@ -43,15 +43,15 @@ public class FlightController{
         return "allFlight";
     }
 
-    @GetMapping("/allFlight/{id}")
-    public String allFlight(@PathVariable("id") int id,
+    @GetMapping("/allFlight/{flightId}")
+    public String allFlight(@PathVariable("flightId") int flightId,
                             Model model) {
-        model.addAttribute("flightDetails", flightService.getAllDetails(id));
+        model.addAttribute("flightDetails", flightService.getAllDetails(flightId));
         return "showFlightDetails";
     }
 
-    @GetMapping("/deleteFlight/{id}")
-    public String deleteFlight(@PathVariable("id") int flightId,
+    @GetMapping("/deleteFlight/{flightId}")
+    public String deleteFlight(@PathVariable("flightId") int flightId,
                                RedirectAttributes redirectAttributes) {
         flightService.deleteFlight(flightId);
         redirectAttributes.addFlashAttribute("flightDeleted", " Lot został usunięty");
