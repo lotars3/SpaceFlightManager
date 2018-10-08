@@ -12,10 +12,12 @@ public class FlightEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "flightNumber")
-    private String flightNumber;
-    @Column(name = "flightPrice")
-    private String flightPrice;
+    @Column(name = "flight_number")
+    private int flightNumber;
+    @Column(name = "flight_price")
+    private double flightPrice;
+    @Column(name = "number_seats")
+    private int numberSeats;
 
 
 }

@@ -17,8 +17,5 @@ public class TouristForm{
 
 
 
-    public TouristForm() {
-    }
-
 
 }

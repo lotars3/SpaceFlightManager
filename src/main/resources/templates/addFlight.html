@@ -14,8 +14,9 @@
         </h1>
     </div>
     <form action="/addFlight" method="post" th:object="${flightForm}">
-        <input th:field="*{flightNumber}" type="text" class="form-control" placeholder="Numer Lotu">
-        <input th:field="*{flightPrice}" type="text" class="form-control" placeholder="Cena lotu">
+        Numer Lotu <input th:field="*{flightNumber}" type="number" class="form-control" placeholder="Numer Lotu">
+        Cena lotu<input th:field="*{flightPrice}" type="number" class="form-control" placeholder="Cena lotu">
+        numberSeats<input th:field="*{numberSeats}" type="number" class="form-control" placeholder="numberSeats">
 
         <button type="submit" class="btn btn-default">Dodaj lot</button>
 

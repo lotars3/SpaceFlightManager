@@ -27,6 +27,7 @@ public class FlightService{
         FlightEntity flightEntity = new FlightEntity();
         flightEntity.setFlightNumber(flightForm.getFlightNumber());
         flightEntity.setFlightPrice(flightForm.getFlightPrice());
+        flightEntity.setNumberSeats(flightForm.getNumberSeats());
 
         return flightEntity;
     }

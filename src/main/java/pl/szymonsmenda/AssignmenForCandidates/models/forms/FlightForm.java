@@ -5,14 +5,14 @@ import lombok.Data;
 @Data
 public class FlightForm{
 
-    private String flightNumber;
-    private String flightPrice;
+    private int flightNumber;
+    private double flightPrice;
+    private int numberSeats;
+
 
 //    private Date timeOfDeparture;
 //    private Date timeOfArrival;
 
 
-    public FlightForm() {
-    }
 
 }

@@ -24,7 +24,8 @@ public class TouristEntity{
 
 
     private String gender;
-//    @Column(name = "dateBirth")
+
+//    @Column(name = "date")
 //    private LocalDate dateBirth;
 
 
