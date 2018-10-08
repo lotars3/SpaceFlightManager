@@ -4,6 +4,7 @@ import lombok.Data;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tourist")
@@ -21,9 +22,13 @@ public class TouristEntity{
     @Column(name = "remarks")
     private String remarks;
 
-//    @Column(name = "dateOfBirth")
-//    private LocalDate birthday;
-    //private String Listofflights; //TODO:  List of flights, Hash?
+
+    private String gender;
+//    @Column(name = "dateBirth")
+//    private LocalDate dateBirth;
+
+
+
 
 
 

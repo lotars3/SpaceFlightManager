@@ -30,7 +30,8 @@ public class TouristService{
         touristEntity.setLastname(touristForm.getLastname());
         touristEntity.setCountry(touristForm.getCountry());
         touristEntity.setRemarks(touristForm.getRemarks());
-//        touristEntity.setBirthday(touristForm.getBirthday());
+//        touristEntity.setDateBirth(touristForm.getDateBirth());
+        touristEntity.setGender(touristForm.getGender());
         return touristEntity;
     }
 
@@ -48,6 +49,8 @@ public class TouristService{
         touristForm.setLastname(entityOptional.get().getLastname());
         touristForm.setCountry(entityOptional.get().getCountry());
         touristForm.setRemarks(entityOptional.get().getRemarks());
+        touristForm.setGender(touristForm.getGender());
+
         return touristForm;
     }
 
