@@ -29,7 +29,9 @@ public class FlightService{
         flightEntity.setFlightNumber(flightForm.getFlightNumber());
         flightEntity.setFlightPrice(flightForm.getFlightPrice());
         flightEntity.setNumberSeats(flightForm.getNumberSeats());
-        flightEntity.setDepartureTime(LocalDate.parse(flightForm.getDepartureTime().toString()));
+        flightEntity.setDepartureTime(flightForm.getDepartureTime());
+        flightEntity.setArrivalTime(flightForm.getArrivalTime());
+//        flightEntity.setDepartureTime(LocalDate.parse(flightForm.getDepartureTime().toString()));
 
         return flightEntity;
     }

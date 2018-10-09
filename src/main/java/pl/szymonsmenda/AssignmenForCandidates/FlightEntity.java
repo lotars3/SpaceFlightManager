@@ -25,7 +25,10 @@ public class FlightEntity{
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate departureTime;
-
+    @Column(name = "arrival_time")
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate arrivalTime;
 
 
 }

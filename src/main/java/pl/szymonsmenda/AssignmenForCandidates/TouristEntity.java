@@ -15,13 +15,9 @@ public class TouristEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "firstname")
     private String firstname;
-    @Column(name = "lastname")
     private String lastname;
-    @Column(name = "country")
     private String country;
-    @Column(name = "remarks")
     private String remarks;
 
 

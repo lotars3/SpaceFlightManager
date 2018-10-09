@@ -15,10 +15,12 @@ public class FlightForm{
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate departureTime;
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate arrivalTime;
 
 
-//    private Date timeOfDeparture;
-//    private Date timeOfArrival;
+
 
 
 

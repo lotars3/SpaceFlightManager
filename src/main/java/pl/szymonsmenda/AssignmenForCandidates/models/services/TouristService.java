@@ -31,7 +31,7 @@ public class TouristService{
         touristEntity.setLastname(touristForm.getLastname());
         touristEntity.setCountry(touristForm.getCountry());
         touristEntity.setRemarks(touristForm.getRemarks());
-        touristEntity.setDateBirth(LocalDate.parse(touristForm.getDateBirth().toString()));
+        touristEntity.setDateBirth(touristForm.getDateBirth());
         touristEntity.setGender(touristForm.getGender());
         return touristEntity;
     }
