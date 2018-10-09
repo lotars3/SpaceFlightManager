@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Data
 public class FlightForm{
 
-    private int flightNumber;
     private double flightPrice;
     private int numberSeats;
     @NotNull

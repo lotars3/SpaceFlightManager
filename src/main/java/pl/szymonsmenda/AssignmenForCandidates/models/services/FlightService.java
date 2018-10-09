@@ -26,7 +26,6 @@ public class FlightService{
 
     private FlightEntity createEntityFromFlightForm(FlightForm flightForm) {
         FlightEntity flightEntity = new FlightEntity();
-        flightEntity.setFlightNumber(flightForm.getFlightNumber());
         flightEntity.setFlightPrice(flightForm.getFlightPrice());
         flightEntity.setNumberSeats(flightForm.getNumberSeats());
         flightEntity.setDepartureTime(flightForm.getDepartureTime());
