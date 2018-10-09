@@ -1,6 +1,8 @@
 package pl.szymonsmenda.AssignmenForCandidates;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
@@ -25,8 +27,10 @@ public class TouristEntity{
 
     private String gender;
 
-//    @Column(name = "date")
-//    private LocalDate dateBirth;
+    @Column(name = "date")
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateBirth;
 
 
 

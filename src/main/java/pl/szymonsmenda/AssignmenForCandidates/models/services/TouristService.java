@@ -6,6 +6,7 @@ import pl.szymonsmenda.AssignmenForCandidates.models.forms.TouristForm;
 import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
 import pl.szymonsmenda.AssignmenForCandidates.models.repositories.TouristRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,7 @@ public class TouristService{
         touristEntity.setLastname(touristForm.getLastname());
         touristEntity.setCountry(touristForm.getCountry());
         touristEntity.setRemarks(touristForm.getRemarks());
-//        touristEntity.setDateBirth(touristForm.getDateBirth());
+        touristEntity.setDateBirth(LocalDate.parse(touristForm.getDateBirth().toString()));
         touristEntity.setGender(touristForm.getGender());
         return touristEntity;
     }

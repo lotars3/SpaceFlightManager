@@ -1,6 +1,8 @@
 package pl.szymonsmenda.AssignmenForCandidates.models.forms;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -13,9 +15,15 @@ public class TouristForm{
     private String remarks;
 
     private String gender;
-//    private LocalDate dateBirth;
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateBirth;
 
+    public String getGender() {
+        return gender;
+    }
 
-
-
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
 }
