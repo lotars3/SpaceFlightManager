@@ -43,19 +43,19 @@ public class TouristService{
     public void deleteTourist(int touristId){
         touristRepository.deleteById(touristId);
     }
+//todo: update turysty
+//    public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
+//        TouristForm touristForm = new TouristForm();
+//        touristForm.setFirstname(entityOptional.get().getFirstname());
+//        touristForm.setLastname(entityOptional.get().getLastname());
+//        touristForm.setCountry(entityOptional.get().getCountry());
+//        touristForm.setRemarks(entityOptional.get().getRemarks());
+//        touristForm.setGender(touristForm.getGender());
+//
+//        return touristForm;
+//    }
 
-    public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
-        TouristForm touristForm = new TouristForm();
-        touristForm.setFirstname(entityOptional.get().getFirstname());
-        touristForm.setLastname(entityOptional.get().getLastname());
-        touristForm.setCountry(entityOptional.get().getCountry());
-        touristForm.setRemarks(entityOptional.get().getRemarks());
-        touristForm.setGender(touristForm.getGender());
-
-        return touristForm;
-    }
-
-    public Optional<TouristEntity> getTouristById(int touristId){
-        return touristRepository.findById(touristId);
-    }
+//    public Optional<TouristEntity> getTouristById(int touristId){
+//        return touristRepository.findById(touristId);
+//    }
 }

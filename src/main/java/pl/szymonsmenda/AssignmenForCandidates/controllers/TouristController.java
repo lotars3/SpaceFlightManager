@@ -25,7 +25,6 @@ public class TouristController{
     }
 
 
-
     @GetMapping("/addTourist")
     public String addTourist(Model model) {
         model.addAttribute("touristForm", new TouristForm());
@@ -34,7 +33,7 @@ public class TouristController{
 
     @PostMapping("/addTourist")
     public String addTourist(@ModelAttribute("touristForm") TouristForm touristForm,
-                          RedirectAttributes redirectAttributes) {
+                             RedirectAttributes redirectAttributes) {
         touristService.addTourist(touristForm);
         redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
         return "redirect:/allTourist";
@@ -60,27 +59,32 @@ public class TouristController{
         redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
         return "redirect:/allTourist";
     }
-
-    @GetMapping("/editTourist/{touristId}")
-    public String editPost(@PathVariable("touristId") int touristId,
-                           Model model,
-                           RedirectAttributes redirectAttributes) {
-        Optional<TouristEntity> postEntityOptional = touristService.getTouristById(touristId);
-        if (postEntityOptional.isPresent()) {
-            touristService.updateTourist(postEntityOptional);
-            model.addAttribute("touristForm", postEntityOptional);
-            return "edit_tourist";
-        }
-        return "redirect:/allTourist/" + touristId;
-    }
-    @PostMapping("/editTourist/{touristId}")
-    public String post(@PathVariable("touristId") int touristId,
-                       @ModelAttribute("touristForm") TouristForm touristForm,
-                       RedirectAttributes redirectAttributes) {
-        touristService.addTourist(touristForm);
-//        redirectAttributes.addFlashAttribute("postUpdated", "Post został zmieniony");
-        return "allTourist";
-    }
-
-
 }
+
+
+
+
+//todo: edycja turysty(danych)
+//    @GetMapping("/editTourist/{touristId}")
+//    public String editPost(@PathVariable("touristId") int touristId,
+//                           Model model,
+//                           RedirectAttributes redirectAttributes) {
+//        Optional<TouristEntity> postEntityOptional = touristService.getTouristById(touristId);
+//        if (postEntityOptional.isPresent()) {
+//            touristService.updateTourist(postEntityOptional);
+//            model.addAttribute("touristForm", postEntityOptional);
+//            return "edit_tourist";
+//        }
+//        return "redirect:/allTourist/" + touristId;
+//    }
+//    @PostMapping("/editTourist/{touristId}")
+//    public String post(@PathVariable("touristId") int touristId,
+//                       @ModelAttribute("touristForm") TouristForm touristForm,
+//                       RedirectAttributes redirectAttributes) {
+//        touristService.addTourist(touristForm);
+////        redirectAttributes.addFlashAttribute("postUpdated", "Post został zmieniony");
+//        return "allTourist";
+
+
+
+

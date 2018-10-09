@@ -1,6 +1,5 @@
 package pl.szymonsmenda.AssignmenForCandidates;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
