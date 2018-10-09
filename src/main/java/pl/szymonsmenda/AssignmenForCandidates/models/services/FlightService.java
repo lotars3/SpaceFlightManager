@@ -6,6 +6,7 @@ import pl.szymonsmenda.AssignmenForCandidates.FlightEntity;
 import pl.szymonsmenda.AssignmenForCandidates.models.forms.FlightForm;
 import pl.szymonsmenda.AssignmenForCandidates.models.repositories.FlightRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class FlightService{
         flightEntity.setFlightNumber(flightForm.getFlightNumber());
         flightEntity.setFlightPrice(flightForm.getFlightPrice());
         flightEntity.setNumberSeats(flightForm.getNumberSeats());
+        flightEntity.setDepartureTime(LocalDate.parse(flightForm.getDepartureTime().toString()));
 
         return flightEntity;
     }

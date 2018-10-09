@@ -19,11 +19,5 @@ public class TouristForm{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateBirth;
 
-    public String getGender() {
-        return gender;
-    }
 
-    public LocalDate getDateBirth() {
-        return dateBirth;
-    }
 }

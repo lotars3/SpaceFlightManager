@@ -1,8 +1,11 @@
 package pl.szymonsmenda.AssignmenForCandidates;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -18,6 +21,11 @@ public class FlightEntity{
     private double flightPrice;
     @Column(name = "number_seats")
     private int numberSeats;
+    @Column(name = "departure_time")
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate departureTime;
+
 
 
 }
