@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface TouristRepository extends CrudRepository<TouristEntity, Integer>{
 
+
     List<TouristEntity> findAll();
 }
