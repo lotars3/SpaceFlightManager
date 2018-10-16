@@ -1,4 +1,4 @@
-package pl.szymonsmenda.AssignmenForCandidates;
+package pl.szymonsmenda.AssignmenForCandidates.database;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,7 +32,7 @@ public class TouristEntity{
             mappedBy = "tourists")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Set<FlightEntity> flights;
+    private Set<FlightEntity> flights ;
 
 
 }

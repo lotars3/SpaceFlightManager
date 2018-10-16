@@ -1,16 +1,14 @@
-package pl.szymonsmenda.AssignmenForCandidates.models.services;
+package pl.szymonsmenda.AssignmenForCandidates.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.szymonsmenda.AssignmenForCandidates.FlightEntity;
-import pl.szymonsmenda.AssignmenForCandidates.models.forms.TouristForm;
-import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
-import pl.szymonsmenda.AssignmenForCandidates.models.repositories.FlightRepository;
-import pl.szymonsmenda.AssignmenForCandidates.models.repositories.TouristRepository;
+import pl.szymonsmenda.AssignmenForCandidates.database.FlightEntity;
+import pl.szymonsmenda.AssignmenForCandidates.forms.TouristForm;
+import pl.szymonsmenda.AssignmenForCandidates.database.TouristEntity;
+import pl.szymonsmenda.AssignmenForCandidates.database.repositories.FlightRepository;
+import pl.szymonsmenda.AssignmenForCandidates.database.repositories.TouristRepository;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TouristService{
@@ -18,14 +16,18 @@ public class TouristService{
     final TouristRepository touristRepository;
     final FlightRepository flightRepository;
 
+    @Autowired
     public TouristService(TouristRepository touristRepository, FlightRepository flightRepository) {
         this.touristRepository = touristRepository;
         this.flightRepository = flightRepository;
     }
 
-    @Autowired
+    public void saveTourist(TouristEntity touristEntity){
+        touristRepository.save(touristEntity);
+    }
 
-    public void addTourist(TouristForm touristForm){
+
+    public void saveTourist(TouristForm touristForm) {
         TouristEntity touristEntity = createEntityFromForm(touristForm);
 
         touristRepository.save(touristEntity);
@@ -42,24 +44,33 @@ public class TouristService{
         return touristEntity;
     }
 
-    public List<TouristEntity> getAll(){return touristRepository.findAll(); }
+    public List<TouristEntity> getListOfTourists() {
+        return touristRepository.findAll();
+    }
 
-    public TouristEntity getAllDetails(int touristId) { return touristRepository.findById(touristId).get();}
+    public TouristEntity getAllDetails(int touristId) {
+        return touristRepository.findById(touristId).get();
+    }
 
-    public void deleteTourist(int touristId){
+    public void deleteTourist(int touristId) {
         touristRepository.deleteById(touristId);
     }
 
-    public void saveFlight (FlightEntity flight, String flightId){
-        FlightEntity flightEntity = flightRepository.findById(flight.getId())
-                .orElseThrow(() -> new RuntimeException("No flights in database with id: " + flight.getId()));
-        TouristEntity touristEntity = touristRepository.findById(Integer.valueOf(flightId))
-                .orElseThrow(() -> new RuntimeException("No tourists in database with id: " + flightId));
-        flightEntity.getTourists().add(touristEntity);
+    public void addFlightToTourist(Long touristId, Long flightId) {
+        FlightEntity flightEntity = flightRepository.findById(Math.toIntExact(flightId))
+                .orElseThrow(() -> new RuntimeException("No flights in database with id: " + flightId));
+        TouristEntity touristEntity = touristRepository.findById(touristId.intValue())
+                .orElseThrow(() -> new RuntimeException("No tourists in database with id: " + touristId));
+        touristEntity.getFlights().add(flightEntity);
 
-        flightRepository.save(flightEntity);
+        touristRepository.save(touristEntity);
     }
 
+    public List<FlightEntity> getFlightsForTourist(Long touristId) {
+        TouristEntity touristEntity = touristRepository.findById(Math.toIntExact(touristId))
+                .orElseThrow(() -> new RuntimeException("No tourists in database with id: "));
+        return flightRepository.findByTourists(touristEntity);
+    }
 
 
 

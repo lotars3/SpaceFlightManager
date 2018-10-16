@@ -16,9 +16,10 @@
     Data Urodzenia: <h1 th:text="${touristDetails.getDateBirth()}"></h1>
 
 
-    Lot: <h1 th:text="${touristDetails.get()}"></h1>
-
-
+    Lot:
+    <div th:each="flight : ${flightDetails}">
+        <h1 th:text="${flight.getId()}"></h1>
+    </div>
 
 
 </div>
@@ -28,7 +29,7 @@
             class="btn btn-danger" style="width:40%">Usuń post
     </button>
     <!--<button th:onclick="'javascript:location.href =\'/editTourist/' + ${touristDetails.getId()} + '\''"-->
-            <!--class="btn btn-primary" style="width:40%">Edytuj post-->
+    <!--class="btn btn-primary" style="width:40%">Edytuj post-->
     <!--</button>-->
 </div>
 <div style="text-align: center">

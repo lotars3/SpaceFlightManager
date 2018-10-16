@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>AssignmenForCandidates </name>
+	<name>pl.szymonsmenda.AssignmenForCandidates </name>
 	<description>Managing space tourist flights</description>
 
 	<parent>

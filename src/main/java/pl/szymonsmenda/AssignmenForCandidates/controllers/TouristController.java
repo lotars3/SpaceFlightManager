@@ -5,12 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.szymonsmenda.AssignmenForCandidates.FlightEntity;
-import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
-import pl.szymonsmenda.AssignmenForCandidates.models.forms.TouristForm;
-import pl.szymonsmenda.AssignmenForCandidates.models.services.TouristService;
-
-import java.util.Optional;
+import pl.szymonsmenda.AssignmenForCandidates.forms.TouristForm;
+import pl.szymonsmenda.AssignmenForCandidates.services.TouristService;
 
 @Controller
 public class TouristController{
@@ -32,14 +28,14 @@ public class TouristController{
     @PostMapping("/addTourist")
     public String addTourist(@ModelAttribute("touristForm") TouristForm touristForm,
                              RedirectAttributes redirectAttributes) {
-        touristService.addTourist(touristForm);
+        touristService.saveTourist(touristForm);
         redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
         return "redirect:/allTourist";
     }
 
     @GetMapping("/allTourist")
     public String allTourist(Model model) {
-        model.addAttribute("tourists", touristService.getAll());
+        model.addAttribute("tourists", touristService.getListOfTourists());
         return "allTourist";
     }
 
@@ -47,6 +43,7 @@ public class TouristController{
     public String allContacts(@PathVariable("touristId") int touristId,
                               Model model) {
         model.addAttribute("touristDetails", touristService.getAllDetails(touristId));
+        model.addAttribute("flightDetails",  touristService.getFlightsForTourist((long) touristId));
         return "showTouristDetails";
     }
 
@@ -57,9 +54,9 @@ public class TouristController{
         redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
         return "redirect:/allTourist";
     }
-    @PostMapping("/tourists/{id}/flights")
-    public String saveFlightToTourist(@PathVariable String touristId, @RequestBody FlightEntity flightEntity){
-        touristService.saveFlight(flightEntity, touristId);
+    @GetMapping("/tourists/{id}/flights")
+    public String saveFlightToTourist(@PathVariable Long touristId){
+        touristService.getFlightsForTourist(touristId);
         return "showTouristDetails";
     }
 

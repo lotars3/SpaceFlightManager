@@ -1,4 +1,4 @@
-package pl.szymonsmenda.AssignmenForCandidates;
+package pl.szymonsmenda.AssignmenForCandidates.database;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
@@ -33,7 +33,7 @@ public class FlightEntity{
     private LocalDate arrivalTime;
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "tourist_flight",
             joinColumns = {@JoinColumn(name = "flight_id")},
             inverseJoinColumns = {@JoinColumn(name = "tourist_id")}

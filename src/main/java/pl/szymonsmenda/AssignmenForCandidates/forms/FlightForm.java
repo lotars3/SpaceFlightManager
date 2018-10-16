@@ -1,4 +1,4 @@
-package pl.szymonsmenda.AssignmenForCandidates.models.forms;
+package pl.szymonsmenda.AssignmenForCandidates.forms;
 
 import lombok.Data;
 import com.sun.istack.NotNull;

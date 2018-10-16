@@ -1,8 +1,8 @@
-package pl.szymonsmenda.AssignmenForCandidates.models.repositories;
+package pl.szymonsmenda.AssignmenForCandidates.database.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.szymonsmenda.AssignmenForCandidates.TouristEntity;
+import pl.szymonsmenda.AssignmenForCandidates.database.TouristEntity;
 
 import java.util.List;
 

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.szymonsmenda.AssignmenForCandidates.models.forms.FlightForm;
-import pl.szymonsmenda.AssignmenForCandidates.models.services.FlightService;
+import pl.szymonsmenda.AssignmenForCandidates.forms.FlightForm;
+import pl.szymonsmenda.AssignmenForCandidates.services.FlightService;
 
 
 @Controller

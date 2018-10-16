@@ -1,12 +1,11 @@
-package pl.szymonsmenda.AssignmenForCandidates.models.services;
+package pl.szymonsmenda.AssignmenForCandidates.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.szymonsmenda.AssignmenForCandidates.FlightEntity;
-import pl.szymonsmenda.AssignmenForCandidates.models.forms.FlightForm;
-import pl.szymonsmenda.AssignmenForCandidates.models.repositories.FlightRepository;
+import pl.szymonsmenda.AssignmenForCandidates.database.repositories.FlightRepository;
+import pl.szymonsmenda.AssignmenForCandidates.database.FlightEntity;
+import pl.szymonsmenda.AssignmenForCandidates.forms.FlightForm;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
