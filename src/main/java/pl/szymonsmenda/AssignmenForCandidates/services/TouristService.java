@@ -9,6 +9,7 @@ import pl.szymonsmenda.AssignmenForCandidates.database.repositories.FlightReposi
 import pl.szymonsmenda.AssignmenForCandidates.database.repositories.TouristRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TouristService{
@@ -27,22 +28,22 @@ public class TouristService{
     }
 
 
-//    public void saveTourist(TouristForm touristForm) {
-//        TouristEntity touristEntity = createEntityFromForm(touristForm);
-//
-//        touristRepository.save(touristEntity);
-//    }
-//
-//    private TouristEntity createEntityFromForm(TouristForm touristForm) {
-//        TouristEntity touristEntity = new TouristEntity();
-//        touristEntity.setFirstname(touristForm.getFirstname());
-//        touristEntity.setLastname(touristForm.getLastname());
-//        touristEntity.setCountry(touristForm.getCountry());
-//        touristEntity.setRemarks(touristForm.getRemarks());
-//        touristEntity.setDateBirth(touristForm.getDateBirth());
-//        touristEntity.setGender(touristForm.getGender());
-//        return touristEntity;
-//    }
+    public void saveTourist(TouristForm touristForm) {
+        TouristEntity touristEntity = createEntityFromForm(touristForm);
+
+        touristRepository.save(touristEntity);
+    }
+
+    private TouristEntity createEntityFromForm(TouristForm touristForm) {
+        TouristEntity touristEntity = new TouristEntity();
+        touristEntity.setFirstname(touristForm.getFirstname());
+        touristEntity.setLastname(touristForm.getLastname());
+        touristEntity.setCountry(touristForm.getCountry());
+        touristEntity.setRemarks(touristForm.getRemarks());
+        touristEntity.setDateBirth(touristForm.getDateBirth());
+        touristEntity.setGender(touristForm.getGender());
+        return touristEntity;
+    }
 
     public List<TouristEntity> getListOfTourists() {
         return touristRepository.findAll();
@@ -96,18 +97,18 @@ public class TouristService{
 
 
     //todo: update turysty
-//    public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
-//        TouristForm touristForm = new TouristForm();
-//        touristForm.setFirstname(entityOptional.get().getFirstname());
-//        touristForm.setLastname(entityOptional.get().getLastname());
-//        touristForm.setCountry(entityOptional.get().getCountry());
-//        touristForm.setRemarks(entityOptional.get().getRemarks());
-//        touristForm.setGender(touristForm.getGender());
-//
-//        return touristForm;
-//    }
+    public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
+        TouristForm touristForm = new TouristForm();
+        touristForm.setFirstname(entityOptional.get().getFirstname());
+        touristForm.setLastname(entityOptional.get().getLastname());
+        touristForm.setCountry(entityOptional.get().getCountry());
+        touristForm.setRemarks(entityOptional.get().getRemarks());
+        touristForm.setGender(touristForm.getGender());
 
-//    public Optional<TouristEntity> getTouristById(int touristId){
-//        return touristRepository.findById(touristId);
-//    }
+        return touristForm;
+    }
+
+    public Optional<TouristEntity> getTouristById(int touristId){
+        return touristRepository.findById(touristId);
+    }
 }
