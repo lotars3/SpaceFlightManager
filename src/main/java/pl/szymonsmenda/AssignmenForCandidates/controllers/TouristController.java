@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.szymonsmenda.AssignmenForCandidates.database.TouristEntity;
 import pl.szymonsmenda.AssignmenForCandidates.forms.TouristForm;
 import pl.szymonsmenda.AssignmenForCandidates.services.TouristService;
 
@@ -27,8 +28,9 @@ public class TouristController{
 
     @PostMapping("/addTourist")
     public String addTourist(@ModelAttribute("touristForm") TouristForm touristForm,
-                             RedirectAttributes redirectAttributes) {
-        touristService.saveTourist(touristForm);
+                             RedirectAttributes redirectAttributes,
+                             TouristEntity touristEntity) {
+        touristService.saveTourist(touristEntity);
         redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
         return "redirect:/allTourist";
     }
@@ -43,7 +45,7 @@ public class TouristController{
     public String allContacts(@PathVariable("touristId") int touristId,
                               Model model) {
         model.addAttribute("touristDetails", touristService.getAllDetails(touristId));
-        model.addAttribute("flightDetails",  touristService.getFlightsForTourist((long) touristId));
+        model.addAttribute("flightDetails", touristService.getFlightsForTourist(touristId));
         return "showTouristDetails";
     }
 
@@ -54,15 +56,24 @@ public class TouristController{
         redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
         return "redirect:/allTourist";
     }
+
     @GetMapping("/tourists/{id}/flights")
-    public String saveFlightToTourist(@PathVariable Long touristId){
+    public String getFlightsForTourist(@PathVariable int touristId) {
         touristService.getFlightsForTourist(touristId);
         return "showTouristDetails";
     }
 
+    @PostMapping("/tourists/{touristId}/flights/{flightId}")
+    public String addFlightToTourist(@PathVariable("touristId") int touristId,
+                                     @PathVariable("flightId") int flightId,
+                                        RedirectAttributes redirectAttributes) {
+        touristService.addFlightToTourist(touristId, flightId);
+        redirectAttributes.addFlashAttribute("touristAdd", " Lot został przypisany do turysty");
+
+        return "showTouristDetails";
+
+    }
 }
-
-
 
 
 //todo: edycja turysty(danych)

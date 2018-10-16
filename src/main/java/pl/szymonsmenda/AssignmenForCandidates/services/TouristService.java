@@ -27,22 +27,22 @@ public class TouristService{
     }
 
 
-    public void saveTourist(TouristForm touristForm) {
-        TouristEntity touristEntity = createEntityFromForm(touristForm);
-
-        touristRepository.save(touristEntity);
-    }
-
-    private TouristEntity createEntityFromForm(TouristForm touristForm) {
-        TouristEntity touristEntity = new TouristEntity();
-        touristEntity.setFirstname(touristForm.getFirstname());
-        touristEntity.setLastname(touristForm.getLastname());
-        touristEntity.setCountry(touristForm.getCountry());
-        touristEntity.setRemarks(touristForm.getRemarks());
-        touristEntity.setDateBirth(touristForm.getDateBirth());
-        touristEntity.setGender(touristForm.getGender());
-        return touristEntity;
-    }
+//    public void saveTourist(TouristForm touristForm) {
+//        TouristEntity touristEntity = createEntityFromForm(touristForm);
+//
+//        touristRepository.save(touristEntity);
+//    }
+//
+//    private TouristEntity createEntityFromForm(TouristForm touristForm) {
+//        TouristEntity touristEntity = new TouristEntity();
+//        touristEntity.setFirstname(touristForm.getFirstname());
+//        touristEntity.setLastname(touristForm.getLastname());
+//        touristEntity.setCountry(touristForm.getCountry());
+//        touristEntity.setRemarks(touristForm.getRemarks());
+//        touristEntity.setDateBirth(touristForm.getDateBirth());
+//        touristEntity.setGender(touristForm.getGender());
+//        return touristEntity;
+//    }
 
     public List<TouristEntity> getListOfTourists() {
         return touristRepository.findAll();
@@ -56,18 +56,38 @@ public class TouristService{
         touristRepository.deleteById(touristId);
     }
 
-    public void addFlightToTourist(Long touristId, Long flightId) {
-        FlightEntity flightEntity = flightRepository.findById(Math.toIntExact(flightId))
-                .orElseThrow(() -> new RuntimeException("No flights in database with id: " + flightId));
-        TouristEntity touristEntity = touristRepository.findById(touristId.intValue())
-                .orElseThrow(() -> new RuntimeException("No tourists in database with id: " + touristId));
+    public void addFlightToTourist(int touristId, int flightId) {
+
+        FlightEntity flightEntity = findFlightEntity(flightId);
+        TouristEntity touristEntity = findTouristEntity(touristId);
+
+        flightEntity.getTourists().add(touristEntity);
         touristEntity.getFlights().add(flightEntity);
 
         touristRepository.save(touristEntity);
+        flightRepository.save(flightEntity);
+
+//        FlightEntity flightEntity = flightRepository.findById(Math.toIntExact(flightId))
+//                .orElseThrow(() -> new RuntimeException("No flights in database with id: " + flightId));
+//        TouristEntity touristEntity = touristRepository.findById(touristId.intValue())
+//                .orElseThrow(() -> new RuntimeException("No tourists in database with id: " + touristId));
+//        touristEntity.getFlights().add(flightEntity);
+//
+//        touristRepository.save(touristEntity);
     }
 
-    public List<FlightEntity> getFlightsForTourist(Long touristId) {
-        TouristEntity touristEntity = touristRepository.findById(Math.toIntExact(touristId))
+    public TouristEntity findTouristEntity(int touristId){
+        return touristRepository.findById(touristId)
+                .orElseThrow(() -> new RuntimeException("Brak turysty w bazie" + touristId));
+    }
+
+    public FlightEntity findFlightEntity(int flightId){
+        return flightRepository.findById(flightId)
+                .orElseThrow(() -> new RuntimeException("Brak lotu w bazie" + flightId));
+    }
+
+    public List<FlightEntity> getFlightsForTourist(int touristId) {
+        TouristEntity touristEntity = touristRepository.findById(touristId)
                 .orElseThrow(() -> new RuntimeException("No tourists in database with id: "));
         return flightRepository.findByTourists(touristEntity);
     }
