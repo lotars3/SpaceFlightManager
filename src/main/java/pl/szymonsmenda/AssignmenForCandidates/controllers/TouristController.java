@@ -93,8 +93,9 @@ public class TouristController{
     public String post(@PathVariable("touristId") int touristId,
                        @ModelAttribute("touristForm") TouristForm touristForm,
                        RedirectAttributes redirectAttributes) {
-        touristService.saveTourist(touristForm);
-//        redirectAttributes.addFlashAttribute("postUpdated", "Post został zmieniony");
+
+        touristService.saveUpdateTourist(touristForm,touristId);
+        redirectAttributes.addFlashAttribute("touristAdd", "Post został zmieniony");
         return "allTourist";
 
 

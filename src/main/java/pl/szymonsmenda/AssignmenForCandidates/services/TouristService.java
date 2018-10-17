@@ -108,6 +108,12 @@ public class TouristService{
         return touristForm;
     }
 
+    public void saveUpdateTourist(TouristForm touristForm,int touristId ) {
+        TouristEntity touristEntity = createEntityFromForm(touristForm);
+        touristEntity.setId(touristId);
+        touristRepository.save(touristEntity);
+    }
+
     public Optional<TouristEntity> getTouristById(int touristId){
         return touristRepository.findById(touristId);
     }
