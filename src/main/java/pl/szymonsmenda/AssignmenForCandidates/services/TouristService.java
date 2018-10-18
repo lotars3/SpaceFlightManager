@@ -103,7 +103,7 @@ public class TouristService{
         touristForm.setLastname(entityOptional.get().getLastname());
         touristForm.setCountry(entityOptional.get().getCountry());
         touristForm.setRemarks(entityOptional.get().getRemarks());
-        touristForm.setGender(touristForm.getGender());
+        touristForm.setGender(entityOptional.get().getGender());
 
         return touristForm;
     }

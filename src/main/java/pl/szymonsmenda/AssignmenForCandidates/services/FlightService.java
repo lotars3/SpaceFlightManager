@@ -7,6 +7,7 @@ import pl.szymonsmenda.AssignmenForCandidates.database.FlightEntity;
 import pl.szymonsmenda.AssignmenForCandidates.forms.FlightForm;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlightService{
@@ -44,5 +45,25 @@ public class FlightService{
 
     public void deleteFlight(int flightId) {
         flightRepository.deleteById(flightId);
+    }
+
+    public FlightForm updateFlight (Optional<FlightEntity> FlightEntityOptional) {
+        FlightForm flightForm = new FlightForm();
+        flightForm.setFlightPrice(FlightEntityOptional.get().getFlightPrice());
+        flightForm.setNumberSeats(FlightEntityOptional.get().getNumberSeats());
+        flightForm.setDepartureTime(FlightEntityOptional.get().getDepartureTime());
+        flightForm.setArrivalTime(FlightEntityOptional.get().getArrivalTime());
+
+        return flightForm;
+    }
+
+    public void saveupdateFlight(FlightForm flightForm ,int flightId ) {
+        FlightEntity flightEntity = createEntityFromFlightForm(flightForm);
+        flightEntity.setId(flightId);
+        flightRepository.save(flightEntity);
+    }
+
+    public Optional<FlightEntity> getFlightById(int flightId){
+        return flightRepository.findById(flightId);
     }
 }

@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.szymonsmenda.AssignmenForCandidates.database.FlightEntity;
 import pl.szymonsmenda.AssignmenForCandidates.forms.FlightForm;
 import pl.szymonsmenda.AssignmenForCandidates.services.FlightService;
+
+import java.util.Optional;
 
 
 @Controller
@@ -56,6 +59,30 @@ public class FlightController{
         flightService.deleteFlight(flightId);
         redirectAttributes.addFlashAttribute("flightDeleted", " Lot został usunięty");
         return "redirect:/allFlight";
+    }
+
+    @GetMapping("/editFlight/{flightId}")
+    public String editFlight(@PathVariable("flightId") int flightId,
+                             Model model) {
+        Optional<FlightEntity> FlightEntityOptional = flightService.getFlightById(flightId);
+        if (FlightEntityOptional.isPresent()) {
+            flightService.updateFlight(FlightEntityOptional);
+            model.addAttribute("flightForm", FlightEntityOptional);
+            return "editFlight";
+        }
+        return "redirect:/allFlight/" + flightId;
+    }
+
+    @PostMapping("/editFlight/{flightId}")
+    public String editFlight(@PathVariable("flightId") int flightId,
+                             @ModelAttribute("flightForm") FlightForm flightForm,
+                             RedirectAttributes redirectAttributes) {
+
+        flightService.saveupdateFlight(flightForm, flightId);
+        redirectAttributes.addFlashAttribute("flightUpdate", "Dane lotu zostały poprawione");
+        return "redirect:/allFlight/" + flightId;
+
+
     }
 
 

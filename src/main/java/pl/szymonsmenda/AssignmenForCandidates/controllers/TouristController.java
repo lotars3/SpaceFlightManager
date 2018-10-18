@@ -29,9 +29,8 @@ public class TouristController{
     }
 
     @PostMapping("/addTourist")
-    public String addTourist(@ModelAttribute("touristForm") TouristForm touristForm,
-                             RedirectAttributes redirectAttributes,
-                             TouristEntity touristEntity) {
+    public String addTourist(@ModelAttribute("touristForm") TouristEntity touristEntity,
+                             RedirectAttributes redirectAttributes) {
         touristService.saveTourist(touristEntity);
         redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
         return "redirect:/allTourist";
@@ -77,26 +76,25 @@ public class TouristController{
     }
 
     @GetMapping("/editTourist/{touristId}")
-    public String editPost(@PathVariable("touristId") int touristId,
-                           Model model,
-                           RedirectAttributes redirectAttributes) {
-        Optional<TouristEntity> postEntityOptional = touristService.getTouristById(touristId);
-        if (postEntityOptional.isPresent()) {
-            touristService.updateTourist(postEntityOptional);
-            model.addAttribute("touristForm", postEntityOptional);
+    public String editTourist(@PathVariable("touristId") int touristId,
+                              Model model) {
+        Optional<TouristEntity> EntityOptional = touristService.getTouristById(touristId);
+        if (EntityOptional.isPresent()) {
+            touristService.updateTourist(EntityOptional);
+            model.addAttribute("touristForm", EntityOptional);
             return "editTourist";
         }
         return "redirect:/allTourist/" + touristId;
     }
 
     @PostMapping("/editTourist/{touristId}")
-    public String post(@PathVariable("touristId") int touristId,
-                       @ModelAttribute("touristForm") TouristForm touristForm,
-                       RedirectAttributes redirectAttributes) {
+    public String editTourist(@PathVariable("touristId") int touristId,
+                              @ModelAttribute("touristForm") TouristForm touristForm,
+                              RedirectAttributes redirectAttributes) {
 
-        touristService.saveUpdateTourist(touristForm,touristId);
-        redirectAttributes.addFlashAttribute("touristAdd", "Post został zmieniony");
-        return "allTourist";
+        touristService.saveUpdateTourist(touristForm, touristId);
+        redirectAttributes.addFlashAttribute("touristUpdate", "Dane turysty zostały poprawione");
+        return "redirect:/allTourist/" + touristId;
 
 
     }

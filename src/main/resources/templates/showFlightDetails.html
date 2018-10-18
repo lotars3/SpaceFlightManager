@@ -7,6 +7,14 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
+
+<div style="width: 400px; margin-top: 10px; margin-left: auto; margin-right: auto">
+
+    <div th:if="${flightUpdate != null}" class="alert alert-success">
+        <strong th:text="${flightUpdate}"></strong>
+    </div>
+
+</div>
 <div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px">
 
     Cena biletu: <h1 th:text="${flightDetails.getFlightPrice()}"></h1>
@@ -23,9 +31,9 @@
     <button th:onclick="'javascript:location.href =\'/deleteFlight/' + ${flightDetails.getId()} + '\''"
             class="btn btn-danger" style="width:40%">Usuń lot
     </button>
-    <!--<button th:onclick="'javascript:location.href =\'/editFlight/' + ${flightDetails.getFlightNo()} + '\''"-->
-            <!--class="btn btn-primary" style="width:40%">Edytuj lot-->
-    <!--</button>-->
+    <button th:onclick="'javascript:location.href =\'/editFlight/' + ${flightDetails.getId()} + '\''"
+            class="btn btn-primary" style="width:40%">Edytuj lot
+    </button>
 </div>
 <div style="text-align: center">
     <button onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Powrót do menu dodawania nowego

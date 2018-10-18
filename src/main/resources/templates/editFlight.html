@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<!--<div th:replace="/constans/header :: header"/>-->
+<div class="container" style="margin-top: 50px; margin-left: 500px">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Nowy post</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form th:action="${'/editFlight/' + flightForm.get().getId()}" method="post"
+                              th:object="${flightForm}">
+                            <input th:field="*{id}" type="hidden">
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">flightPrice</label>
+                                <div class="col-8">
+                                    <input th:field="*{flightPrice}" type="number" class="form-control" placeholder="flightPrice"
+                                           required="required">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">numberSeats</label>
+                                <div class="col-8">
+<textarea th:field="*{numberSeats}" type="number" class="form-control"
+          placeholder="numberSeats"
+          cols="40" rows="4" required="required"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">departureTime</label>
+                                <div class="col-8">
+<textarea th:field="*{departureTime}" type="date" class="form-control"
+          placeholder="departureTime"
+          cols="40" rows="4" required="required"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">arrivalTime</label>
+                                <div class="col-8">
+<textarea th:field="*{arrivalTime}" type="date" class="form-control" placeholder="arrivalTime"
+          cols="40" rows="4" required="required"></textarea>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                    <button name="submit" type="submit" class="btn btn-primary">Zapisz</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; padding: 5px">
+            <button onclick="javascript:location.href = '/allFlight'" class="btn btn-primary btn-block">Powrót do menu
+                głównego
+            </button>
+        </div>
+    </div>
+</div>
+<!--<div th:replace="/constans/footer :: footer"/>-->
+
+</body>
+</html>
