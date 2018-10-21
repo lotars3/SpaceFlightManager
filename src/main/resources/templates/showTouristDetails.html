@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Szczegóły turysty</title>
@@ -23,12 +23,21 @@
     Płeć: <h1 th:text="${touristDetails.getGender()}"></h1>
     Data Urodzenia: <h1 th:text="${touristDetails.getDateBirth()}"></h1>
 
-
+    <div style="text-align: center">
+        <button onclick="javascript:location.href = '/addTouristToFlight'" class="btn btn-primary">addTouristToFlight
+        </button>
+    </div>
     Lot:
-    <div th:each="flight : ${flightDetails}">
+    <div  th:each="flight : ${flightDetails}">
         <h1 th:text="${flight.getId()}"></h1>
     </div>
 
+
+    <!--<select th:field="*{flight}">-->
+        <!--<option th:each="flight : ${flights}"-->
+                <!--th:value="${flight}"-->
+                <!--th:text="${flight.getId()}">Lot</option>-->
+    <!--</select>-->
 
 </div>
 

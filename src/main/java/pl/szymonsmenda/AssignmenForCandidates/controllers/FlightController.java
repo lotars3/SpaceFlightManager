@@ -42,7 +42,7 @@ public class FlightController{
 
     @GetMapping("/allFlight")
     public String allFlight(Model model) {
-        model.addAttribute("flights", flightService.getAll());
+        model.addAttribute("flights", flightService.getListOfFlights());
         return "allFlight";
     }
 

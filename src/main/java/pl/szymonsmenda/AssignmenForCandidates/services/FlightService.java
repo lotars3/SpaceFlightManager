@@ -18,6 +18,12 @@ public class FlightService{
         this.flightRepository = flightRepository;
     }
 
+
+    public void addFlight(FlightEntity flightEntity) {
+        flightRepository.save(flightEntity);
+    }
+
+
     public void addFlight(FlightForm flightForm) {
         FlightEntity flightEntity = createEntityFromFlightForm(flightForm);
 
@@ -35,9 +41,10 @@ public class FlightService{
         return flightEntity;
     }
 
-    public List<FlightEntity> getAll() {
+    public List<FlightEntity> getListOfFlights() {
         return flightRepository.findAll();
     }
+
 
     public FlightEntity getAllDetails(int flightId) {
         return flightRepository.findById(flightId).get();
@@ -47,7 +54,7 @@ public class FlightService{
         flightRepository.deleteById(flightId);
     }
 
-    public FlightForm updateFlight (Optional<FlightEntity> FlightEntityOptional) {
+    public FlightForm updateFlight(Optional<FlightEntity> FlightEntityOptional) {
         FlightForm flightForm = new FlightForm();
         flightForm.setFlightPrice(FlightEntityOptional.get().getFlightPrice());
         flightForm.setNumberSeats(FlightEntityOptional.get().getNumberSeats());
@@ -57,13 +64,14 @@ public class FlightService{
         return flightForm;
     }
 
-    public void saveupdateFlight(FlightForm flightForm ,int flightId ) {
+    public void saveupdateFlight(FlightForm flightForm, int flightId) {
         FlightEntity flightEntity = createEntityFromFlightForm(flightForm);
         flightEntity.setId(flightId);
         flightRepository.save(flightEntity);
     }
 
-    public Optional<FlightEntity> getFlightById(int flightId){
+    public Optional<FlightEntity> getFlightById(int flightId) {
         return flightRepository.findById(flightId);
     }
+
 }
