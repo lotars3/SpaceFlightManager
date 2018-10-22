@@ -58,23 +58,6 @@ public class TouristController{
         return "redirect:/allTourist";
     }
 
-    @GetMapping("/tourists/{id}/flights")
-    public String getFlightsForTourist(@PathVariable int touristId) {
-        touristService.getFlightsForTourist(touristId);
-        return "showTouristDetails";
-    }
-
-    @PostMapping("/tourists/{touristId}/flights/{flightId}")
-    public String addFlightToTourist(@PathVariable("touristId") int touristId,
-                                     @PathVariable("flightId") int flightId,
-                                     RedirectAttributes redirectAttributes) {
-        touristService.addFlightToTourist(touristId, flightId);
-        redirectAttributes.addFlashAttribute("touristAdd", " Lot został przypisany do turysty");
-
-        return "showTouristDetails";
-
-    }
-
     @GetMapping("/editTourist/{touristId}")
     public String editTourist(@PathVariable("touristId") int touristId,
                               Model model) {
@@ -95,7 +78,22 @@ public class TouristController{
         touristService.saveUpdateTourist(touristForm, touristId);
         redirectAttributes.addFlashAttribute("touristUpdate", "Dane turysty zostały poprawione");
         return "redirect:/allTourist/" + touristId;
+    }
 
+    @GetMapping("/tourists/{id}/flights")
+    public String getFlightsForTourist(@PathVariable int touristId) {
+        touristService.getFlightsForTourist(touristId);
+        return "showTouristDetails";
+    }
+
+    @PostMapping("/tourists/{touristId}/flights/{flightId}")
+    public String addFlightToTourist(@PathVariable("touristId") int touristId,
+                                     @PathVariable("flightId") int flightId,
+                                     RedirectAttributes redirectAttributes) {
+        touristService.addFlightToTourist(touristId, flightId);
+        redirectAttributes.addFlashAttribute("touristAdd", " Lot został przypisany do turysty");
+
+        return "showTouristDetails";
 
     }
 }

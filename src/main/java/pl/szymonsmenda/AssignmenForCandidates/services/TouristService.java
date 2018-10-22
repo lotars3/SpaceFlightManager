@@ -117,4 +117,26 @@ public class TouristService{
     public Optional<TouristEntity> getTouristById(int touristId){
         return touristRepository.findById(touristId);
     }
+
+    public void saveTouristToFlight(int flightId, int touristId) {
+        FlightEntity flightEntity = findFlightEntity(flightId);
+        TouristEntity touristEntity = findTouristEntity(touristId);
+
+        flightEntity.getTourists().add(touristEntity);
+        touristEntity.getFlights().add(flightEntity);
+
+        touristRepository.save(touristEntity);
+        flightRepository.save(flightEntity);
+    }
+
+    public void removeTouristFromFlight(int flightId, int touristId) {
+        FlightEntity flightEntity = findFlightEntity(flightId);
+        TouristEntity touristEntity = findTouristEntity(touristId);
+
+        flightEntity.getTourists().remove(touristEntity);
+        touristEntity.getFlights().remove(flightEntity);
+
+        touristRepository.save(touristEntity);
+        flightRepository.save(flightEntity);
+    }
 }

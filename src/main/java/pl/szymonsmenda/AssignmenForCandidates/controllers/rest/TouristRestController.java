@@ -32,4 +32,16 @@ public class TouristRestController{
         touristService.deleteTourist(touristId);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping(value = "/tourists/{touristId}/flights/{flightId}", consumes = "application/json")
+    public ResponseEntity saveTouristToFlight(@PathVariable("flightId") int flightId, @PathVariable("touristId") int touristId) {
+        touristService.saveTouristToFlight(flightId, touristId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping(value = "/tourists/{touristId}/flights/{flightId}" ,produces ="application/json" )
+    public ResponseEntity removeTouristFromFlight(@PathVariable("flightId") int flightId, @PathVariable("touristId") int touristId){
+        touristService.removeTouristFromFlight(flightId, touristId);
+        return ResponseEntity.ok().build();
+    }
 }

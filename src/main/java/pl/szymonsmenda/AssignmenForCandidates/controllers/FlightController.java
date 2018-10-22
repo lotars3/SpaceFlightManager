@@ -49,7 +49,7 @@ public class FlightController{
     @GetMapping("/allFlight/{flightId}")
     public String allFlight(@PathVariable("flightId") int flightId,
                             Model model) {
-        model.addAttribute("flightDetails", flightService.getAllDetails(flightId));
+        model.addAttribute("flightDetails", flightService.getAllFlightDetails(flightId));
         return "showFlightDetails";
     }
 

@@ -36,6 +36,18 @@ public class FlightRestController{
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping(value = "/flights/{flightId}/tourists/{touristId}", consumes = "application/json")
+    public ResponseEntity saveFlightToTourist(@PathVariable("flightId") int flightId, @PathVariable("touristId") int touristId) {
+        flightService.saveFlightToTourist(flightId, touristId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping(value = "/flights/{flightId}/tourists/{touristId}" ,produces ="application/json" )
+    public ResponseEntity removeFlightFromTourist(@PathVariable("flightId") int flightId, @PathVariable("touristId") int touristId){
+        flightService.removeFlightFromTourist(flightId, touristId);
+        return ResponseEntity.ok().build();
+    }
+
 
 
 

@@ -31,9 +31,9 @@
 
 
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
-    <div class=" alert alert-info" th:each="touris : ${tourists}">
-        <a th:href="'allTourist/'+${touris.getId()}">
-            Nazwisko  <h3 class="alert-heading" th:text="${touris .getLastname()}"></h3>
+    <div class=" alert alert-info" th:each="tourist : ${tourists}">
+        <a th:href="'allTourist/'+${tourist.getId()}">
+            Nazwisko  <h3 class="alert-heading" th:text="${tourist.getLastname()}"></h3>
         </a>
     </div>
 </div>
