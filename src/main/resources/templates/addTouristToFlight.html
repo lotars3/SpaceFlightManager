@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<!--<form action="/addFlight" method="post" th:object="${flightForm}">-->
+<div>
+<form>
+<select >
+    <option th:each="flight : ${flights}" th:value="${flightDetails.getId()}" th:text="${flightDetails.getId()}">Thymus Thymi</option>
+</select>
+    <!--</form>-->
+
+<button th:onclick="'javascript:location.href =\ '/tourists/' + ${touristDetails.getId()} +'/flights/' + ${flightDetails.getId()} + '\''  "
+        class="btn btn-danger" style="width:40%">Usuń post
+</button>
+</form>
+</div>
+/tourists/{touristId}/flights/{flightId}
+
+<!--<div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">-->
+    <!--<div class="checkbox" th:each="flight : ${flights}">-->
+        <!--<a th:href="'allFlight/'+${flight.getId()}">-->
+              <!--<h3 class="alert-heading" th:text="${flight.getId()}"></h3>-->
+        <!--</a>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<table>-->
+    <!--<div class="checkbox"  type="checkbox" th:each="flight : ${flights}">-->
+        <!--<tr>-->
+        <!--<th th:text="${flight.getId()}"></th>-->
+        <!--<th>-->
+            <!--<button type="submit" >Dodaj lot</button>-->
+        <!--</th>-->
+    <!--</tr>-->
+    <!--</div>-->
+<!--</table>-->
+
+
+
+<!--<ul>-->
+    <!--<li><input th:checked="${flight.getId()}" type="checkbox" name="${flight.getId()}" value="1"> </li>-->
+    <!--<li><input type="checkbox" name="lot[]" value="2"> Lot 2</li>-->
+    <!--<li><input type="checkbox" name="lot[]" value="3"> Lot 3</li>-->
+    <!--<li><input type="checkbox" name="lot[]" value="4"> Lot 4</li>-->
+    <!--<li><input type="checkbox" name="lot[]" value="5"> Lot 5</li>-->
+    <!--<li><input type="checkbox" name="lot[]" value="6"> Lot 6</li>-->
+<!--</ul>-->
+
+<!--<div>-->
+
+    <!--<form class="checkbox" action="/tourists/{touristId}/flights/{flightId}" method="post" ">-->
+        <!--<ul>-->
+            <!--<li th:each="flight : ${flights}">-->
+                <!--<div>-->
+                    <!--<input type="checkbox" th:field="*{flight.getId()}" >-->
+                    <!--<label th:text="${flight.getId()}"></label>-->
+
+                <!--</div>-->
+            <!--</li>-->
+
+        <!--</ul>-->
+
+        <!--<button type="submit" class="btn btn-default">Dodaj turyste</button>-->
+
+
+    <!--</form>-->
+<!--</div>-->
 
 </body>
 </html>

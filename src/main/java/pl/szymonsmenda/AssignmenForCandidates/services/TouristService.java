@@ -67,15 +67,7 @@ public class TouristService{
 
         touristRepository.save(touristEntity);
         flightRepository.save(flightEntity);
-
-//        FlightEntity flightEntity = flightRepository.findById(Math.toIntExact(flightId))
-//                .orElseThrow(() -> new RuntimeException("No flights in database with id: " + flightId));
-//        TouristEntity touristEntity = touristRepository.findById(touristId.intValue())
-//                .orElseThrow(() -> new RuntimeException("No tourists in database with id: " + touristId));
-//        touristEntity.getFlights().add(flightEntity);
-//
-//        touristRepository.save(touristEntity);
-    }
+        }
 
     public TouristEntity findTouristEntity(int touristId){
         return touristRepository.findById(touristId)
@@ -96,7 +88,6 @@ public class TouristService{
 
 
 
-    //todo: update turysty
     public TouristForm updateTourist (Optional<TouristEntity> entityOptional) {
         TouristForm touristForm = new TouristForm();
         touristForm.setFirstname(entityOptional.get().getFirstname());
