@@ -63,9 +63,9 @@ public class TouristService{
         TouristEntity touristEntity = findTouristEntity(touristId);
 
         flightEntity.getTourists().add(touristEntity);
-        touristEntity.getFlights().add(flightEntity);
+//        touristEntity.getFlights().add(flightEntity);
 
-        touristRepository.save(touristEntity);
+//        touristRepository.save(touristEntity);
         flightRepository.save(flightEntity);
         }
 

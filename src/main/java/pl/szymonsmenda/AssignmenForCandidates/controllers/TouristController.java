@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.szymonsmenda.AssignmenForCandidates.database.TouristEntity;
 import pl.szymonsmenda.AssignmenForCandidates.forms.TouristForm;
+import pl.szymonsmenda.AssignmenForCandidates.services.FlightService;
 import pl.szymonsmenda.AssignmenForCandidates.services.TouristService;
 
 import java.util.Optional;
@@ -14,12 +15,11 @@ import java.util.Optional;
 @Controller
 public class TouristController{
 
-    final TouristService touristService;
-
     @Autowired
-    public TouristController(TouristService touristService) {
-        this.touristService = touristService;
-    }
+    private TouristService touristService;
+    @Autowired
+    private FlightService flightService;
+
 
 
     @GetMapping("/addTourist")
@@ -46,7 +46,8 @@ public class TouristController{
     public String allContacts(@PathVariable("touristId") int touristId,
                               Model model) {
         model.addAttribute("touristDetails", touristService.getAllDetails(touristId));
-        model.addAttribute("flightDetails", touristService.getFlightsForTourist(touristId));
+        model.addAttribute("touristFlightDetails", touristService.getFlightsForTourist(touristId));
+        model.addAttribute("allFlightDetails", flightService.getListOfFlights());
         return "showTouristDetails";
     }
 
@@ -86,14 +87,14 @@ public class TouristController{
         return "showTouristDetails";
     }
 
-    @PostMapping("/tourists/{touristId}/flights/{flightId}")
+    @PostMapping("/tourists/{touristId}/flights/add")
     public String addFlightToTourist(@PathVariable("touristId") int touristId,
-                                     @PathVariable("flightId") int flightId,
+                                     @RequestParam("flightId") int flightId,
                                      RedirectAttributes redirectAttributes) {
         touristService.addFlightToTourist(touristId, flightId);
         redirectAttributes.addFlashAttribute("touristAdd", " Lot został przypisany do turysty");
 
-        return "showTouristDetails";
+        return "redirect:/allTourist/" + touristId;
 
     }
 }
