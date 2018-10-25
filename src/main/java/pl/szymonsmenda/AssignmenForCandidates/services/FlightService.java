@@ -109,4 +109,10 @@ public class FlightService{
     }
 
 
+    public List<TouristEntity> getTouristForFlight(int flightId) {
+
+        FlightEntity flightEntity = flightRepository.findById(flightId)
+                .orElseThrow(() -> new RuntimeException("No flight in database with id: "));
+        return touristRepository.findByFlights(flightEntity);
+    }
 }

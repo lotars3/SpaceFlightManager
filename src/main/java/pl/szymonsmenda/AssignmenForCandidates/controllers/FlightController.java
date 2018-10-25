@@ -50,6 +50,7 @@ public class FlightController{
     public String allFlight(@PathVariable("flightId") int flightId,
                             Model model) {
         model.addAttribute("flightDetails", flightService.getAllFlightDetails(flightId));
+        model.addAttribute("flightTouristDetails", flightService.getTouristForFlight(flightId));
         return "showFlightDetails";
     }
 

@@ -21,10 +21,9 @@
     Liczba miejsc: <h1 th:text="${flightDetails.getNumberSeats()}"></h1>
     departureTime : <h1 th:text="${flightDetails.getDepartureTime()}"></h1>
     arrivalTime : <h1 th:text="${flightDetails.getArrivalTime()}"></h1>
-    <!--todo:wyświetlanie turystów -->
-    Turysta:
-    <div  th:each="tourist : ${tourists}">
-        <h1 th:text="${tourist.getId()}"></h1>
+    Lista turystów:
+    <div  th:each="tourist : ${flightTouristDetails}">
+        <h1 th:text="${tourist.getLastname()}"></h1>
     </div>
 
 
