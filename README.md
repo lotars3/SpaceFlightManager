@@ -1,0 +1,1 @@
+Application for managing space tourist flights.The system will store data in a SQL database. Architecture in which the browser runs a client which will communicate through REST with a server implementing business logic and managing the connection to the database
