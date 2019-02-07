@@ -66,7 +66,7 @@ public class FlightService{
         return flightForm;
     }
 
-    public void saveupdateFlight(FlightForm flightForm, int flightId) {
+    public void saveUpdateFlight(FlightForm flightForm, int flightId) {
         FlightEntity flightEntity = createEntityFromFlightForm(flightForm);
         flightEntity.setId(flightId);
         flightRepository.save(flightEntity);

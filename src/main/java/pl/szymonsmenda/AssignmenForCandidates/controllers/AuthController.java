@@ -36,7 +36,7 @@ public class AuthController{
     public String login(@RequestParam("email") String email,
                         @RequestParam("password") String password,
                         Model model) {
-        if (!authService.tryLogin(email, password)) {
+        if (!authService.isLogin(email, password)) {
             model.addAttribute("infoAboutLogin", "Nieprawidłowy login lub hasło");
             return "login";
         }
@@ -53,7 +53,7 @@ public class AuthController{
     @PostMapping("/register")
     public String register(@ModelAttribute("registerForm") RegisterForm registerForm,
                            Model model) {
-        if (!authService.tryToRegister(registerForm)) {
+        if (!authService.isRegister(registerForm)) {
             model.addAttribute("infoAboutRegister", "Email zajęty");
             return "register";
         }

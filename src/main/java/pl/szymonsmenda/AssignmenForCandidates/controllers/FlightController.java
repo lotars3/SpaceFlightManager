@@ -79,7 +79,7 @@ public class FlightController{
                              @ModelAttribute("flightForm") FlightForm flightForm,
                              RedirectAttributes redirectAttributes) {
 
-        flightService.saveupdateFlight(flightForm, flightId);
+        flightService.saveUpdateFlight(flightForm, flightId);
         redirectAttributes.addFlashAttribute("flightUpdate", "Dane lotu zostały poprawione");
         return "redirect:/allFlight/" + flightId;
 

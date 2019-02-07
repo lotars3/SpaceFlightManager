@@ -20,7 +20,7 @@ public class AuthService{
         this.sessionService = sessionService;
     }
 
-    public boolean tryLogin(String email, String password){
+    public boolean isLogin(String email, String password){
         Optional<UserEntity> userEntity
                 = userRepository.findByEmailAndPassword(email, password);
         if(userEntity.isPresent()){
@@ -30,7 +30,7 @@ public class AuthService{
         return userEntity.isPresent();
     }
 
-    public boolean tryToRegister(RegisterForm registerForm){
+    public boolean isRegister(RegisterForm registerForm){
         if(userRepository.existsByEmail(registerForm.getEmail())){
             return false;
         }
