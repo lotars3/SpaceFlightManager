@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Turysta</title>
+    <title>Tourist management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -10,23 +10,23 @@
 <div style="width: 600px; margin-top: 50px; margin-left: auto; margin-right: auto; padding: 20px;">
     <div class="alert alert-success">
         <h1>
-            <strong> Menu dodawanie nowego turysty do bazy </strong>
+            <strong> Tourist management </strong>
         </h1>
     </div>
     <form action="/addTourist" method="post" th:object="${touristForm}">
-        <input th:field="*{firstname}" type="text" class="form-control" placeholder="Imię">
-        <input th:field="*{lastname}" type="text" class="form-control" placeholder="Nazwisko">
-        <input th:field="*{country}" type="text" class="form-control" placeholder="Państwo">
-        <input th:field="*{remarks}" type="text" class="form-control" placeholder="Uwagi">
-        <input th:field="*{gender}" type="text" class="form-control" placeholder="Płeć">
-        <input th:field="*{dateBirth}" type="date" class="form-control" placeholder="Rok ">
+        <input th:field="*{firstname}" type="text" class="form-control" placeholder="First name">
+        <input th:field="*{lastname}" type="text" class="form-control" placeholder="Last name">
+        <input th:field="*{country}" type="text" class="form-control" placeholder="Country">
+        <input th:field="*{remarks}" type="text" class="form-control" placeholder="Remarks">
+        <input th:field="*{gender}" type="text" class="form-control" placeholder="Gender">
+        <input th:field="*{dateBirth}" type="date" class="form-control" placeholder="Date of birth">
 
-        <button type="submit" class="btn btn-default">Dodaj turyste</button>
+        <button type="submit" class="btn btn-default">Add a tourist</button>
 
     </form>
 
     <div style="text-align: center">
-        <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
+        <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">List of tourists</button>
     </div>
 </div>
 </body>

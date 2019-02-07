@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Szczegóły turysty</title>
+    <title>Tourist</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -15,18 +15,18 @@
     </div>
 
 </div>
-<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px">
-    Imię: <h4 th:text="${touristDetails.getFirstname()}"></h4>
-    Nazwisko: <h4 th:text="${touristDetails.getLastname()}"></h4>
-    Państwo: <h1 th:text="${touristDetails.getCountry()}"></h1>
-    Uwagi: <h1 th:text="${touristDetails.getRemarks()}"></h1>
-    Płeć: <h1 th:text="${touristDetails.getGender()}"></h1>
-    Data Urodzenia: <h1 th:text="${touristDetails.getDateBirth()}"></h1>
+<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px; font-size:medium">
+    First name: <h1 th:text="${touristDetails.getFirstname()}"></h1>
+    Last name: <h1 th:text="${touristDetails.getLastname()}"></h1>
+    Country: <h1 th:text="${touristDetails.getCountry()}"></h1>
+    Remarks: <h1 th:text="${touristDetails.getRemarks()}"></h1>
+    Gender: <h1 th:text="${touristDetails.getGender()}"></h1>
+    Date of birth: <h1 th:text="${touristDetails.getDateBirth()}"></h1>
 
 
     <div style="text-align: center">
         <tr>
-            <td>Przypisz lot</td>
+            <td>Add flight</td>
 
         </tr>
         <form th:action="${'/tourists/'+touristDetails.getId()+'/flights/add'}" method="post">
@@ -37,7 +37,7 @@
             <input type="submit" name="upvote" value="Dodaj"/>
         </form>
     </div>
-    Lot:
+    Flights:
     <div th:each="flight : ${touristFlightDetails}">
         <h1 th:text="${flight.getId()}"></h1>
     </div>
@@ -47,19 +47,18 @@
 
 <div style="text-align: center">
     <button th:onclick="'javascript:location.href =\'/deleteTourist/' + ${touristDetails.getId()} + '\''"
-            class="btn btn-danger" style="width:40%">Usuń post
+            class="btn btn-danger" style="width:40%">Delete Tourist
     </button>
     <button th:onclick="'javascript:location.href =\'/editTourist/' + ${touristDetails.getId()} + '\''"
-            class="btn btn-primary" style="width:40%">Edytuj post
+            class="btn btn-primary" style="width:40%">Edit Tourist
     </button>
 </div>
 <div style="text-align: center">
-    <button onclick="javascript:location.href = '/addTourist'" class="btn btn-primary">Powrót do menu dodawania nowego
-        turysty
+    <button onclick="javascript:location.href = '/addTourist'" class="btn btn-primary">Tourist Menu
     </button>
 </div>
 <div style="text-align: center; padding: 5px">
-    <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">Pokaż listę turystów</button>
+    <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary">List of tourists</button>
 </div>
 
 

@@ -2,26 +2,26 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Szczegóły lotu</title>
+    <title>Flight</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
 
-<div style="width: 400px; margin-top: 10px; margin-left: auto; margin-right: auto">
+<div style="width: 400px; margin-top: 10px; margin-left: auto; margin-right: auto ">
 
     <div th:if="${flightUpdate != null}" class="alert alert-success">
         <strong th:text="${flightUpdate}"></strong>
     </div>
 
 </div>
-<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px">
+<div class="card-body" style="text-align: center; border: blue dot-dot-dash 2px; font-size: medium">
 
-    Cena biletu: <h1 th:text="${flightDetails.getFlightPrice()}"></h1>
-    Liczba miejsc: <h1 th:text="${flightDetails.getNumberSeats()}"></h1>
-    departureTime : <h1 th:text="${flightDetails.getDepartureTime()}"></h1>
-    arrivalTime : <h1 th:text="${flightDetails.getArrivalTime()}"></h1>
-    Lista turystów:
+    Ticket price: <h1 th:text="${flightDetails.getFlightPrice()}"></h1>
+    Number of seats: <h1 th:text="${flightDetails.getNumberSeats()}"></h1>
+    Departure date : <h1 th:text="${flightDetails.getDepartureTime()}"></h1>
+    Arrival date : <h1 th:text="${flightDetails.getArrivalTime()}"></h1>
+    List of tourists:
     <div  th:each="tourist : ${flightTouristDetails}">
         <h1 th:text="${tourist.getLastname()}"></h1>
     </div>
@@ -31,19 +31,18 @@
 
 <div style="text-align: center">
     <button th:onclick="'javascript:location.href =\'/deleteFlight/' + ${flightDetails.getId()} + '\''"
-            class="btn btn-danger" style="width:40%">Usuń lot
+            class="btn btn-danger" style="width:40%">Delete Flight
     </button>
     <button th:onclick="'javascript:location.href =\'/editFlight/' + ${flightDetails.getId()} + '\''"
-            class="btn btn-primary" style="width:40%">Edytuj lot
+            class="btn btn-primary" style="width:40%">Edit Flight
     </button>
 </div>
 <div style="text-align: center">
-    <button onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Powrót do menu dodawania nowego
-        lotu
+    <button onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Flights Menu
     </button>
 </div>
 <div style="text-align: center; padding: 5px">
-    <button onclick="javascript:location.href = '/allFlight'" class="btn btn-primary">Pokaż listę lotów</button>
+    <button onclick="javascript:location.href = '/allFlight'" class="btn btn-primary">List of flight</button>
 </div>
 
 

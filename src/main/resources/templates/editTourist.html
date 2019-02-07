@@ -21,7 +21,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Nowy post</h4>
+                        <h4>Edit Tourist</h4>
                         <hr>
                     </div>
                 </div>
@@ -32,49 +32,49 @@
                             <input th:field="*{id}" type="hidden">
 
                             <div class="form-group row">
-                                <label class="col-4 col-form-label">Imię</label>
+                                <label class="col-4 col-form-label">First name</label>
                                 <div class="col-8">
-                                    <input th:field="*{firstname}" type="text" class="form-control" placeholder="Imię"
+                                    <input th:field="*{firstname}" type="text" class="form-control" placeholder="First name"
                                            required="required">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-4 col-form-label">Nazwisko</label>
+                                <label class="col-4 col-form-label">Last name</label>
                                 <div class="col-8">
 <textarea th:field="*{lastname}" type="text" class="form-control"
-          placeholder="Nazwisko"
+          placeholder="Last name"
           cols="40" rows="4" required="required"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-4 col-form-label">Państwo</label>
+                                <label class="col-4 col-form-label">Country</label>
                                 <div class="col-8">
 <textarea th:field="*{country}" type="text" class="form-control"
-          placeholder="Państwo"
+          placeholder="Country"
           cols="40" rows="4" required="required"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-4 col-form-label">Uwagi</label>
+                                <label class="col-4 col-form-label">Remarks</label>
                                 <div class="col-8">
-<textarea th:field="*{remarks}" type="text" class="form-control" placeholder="Uwagi"
+<textarea th:field="*{remarks}" type="text" class="form-control" placeholder="Remarks"
           cols="40" rows="4" required="required"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-4 col-form-label">gender</label>
+                                <label class="col-4 col-form-label">Gender</label>
                                 <div class="col-8">
-<textarea th:field="*{gender}" type="text" class="form-control" placeholder="gender"
+<textarea th:field="*{gender}" type="text" class="form-control" placeholder="Gender"
           cols="40" rows="4" required="required"></textarea>
                                 </div>
                             </div>
                                   <div class="form-group row">
-                                <label class="col-4 col-form-label">dateBirth</label>
+                                <label class="col-4 col-form-label">Date of birth</label>
                                 <div class="col-8">
-<textarea th:field="*{dateBirth}" type="data" class="form-control" placeholder="dateBirth"
+<textarea th:field="*{dateBirth}" type="data" class="form-control" placeholder="Date of birth"
           cols="40" rows="4" required="required"></textarea>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">
-                                    <button name="submit" type="submit" class="btn btn-primary">Zapisz</button>
+                                    <button name="submit" type="submit" class="btn btn-primary">Save update</button>
                                 </div>
                             </div>
                         </form>
@@ -91,9 +91,7 @@
             </div>
         </div>
         <div style="text-align: center; padding: 5px">
-            <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary btn-block">Powrót do menu
-                głównego
-            </button>
+            <button onclick="javascript:location.href = '/allTourist'" class="btn btn-primary btn-block">Menu            </button>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
+    <title>User Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -15,12 +15,12 @@
     <form action="/register" method="post" th:object="${registerForm}">
         <input th:field="*{username}" type="text" class="form-control" placeholder="Nick">
         <input th:field="*{email}" type="text" class="form-control" placeholder="Email">
-        <input th:field="*{password}" type="password" class="form-control" placeholder="Hasło">
-        <input th:field="*{age}" type="number" class="form-control" placeholder="Wiek">
-        <button type="submit" class="btn btn-default">Zarejestruj się</button>
+        <input th:field="*{password}" type="password" class="form-control" placeholder="Password">
+        <input th:field="*{age}" type="number" class="form-control" placeholder="Age">
+        <button type="submit" class="btn btn-default">Register</button>
 
     </form>
-    <button onclick="javascript:location.href='/login'" class="btn btn-default">Zaloguj sie</button>
+    <button onclick="javascript:location.href='/login'" class="btn btn-default">Login</button>
 
 
 </div>

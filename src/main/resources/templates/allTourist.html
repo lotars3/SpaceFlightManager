@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Lista turystów</title>
+    <title>List of tourists</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -10,10 +10,10 @@
 <div style="text-align: center">
     <div class="alert alert-success">
         <h1>
-            <strong>Lista turystów</strong>
+            <strong>List of tourists</strong>
         </h1>
         <h6>
-            <strong>(Kliknij na nazwisko, aby wyświetlić turyste )</strong>
+            <strong>(Click on the name to display the tourist)</strong>
         </h6>
     </div>
 </div>
@@ -33,16 +33,16 @@
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
     <div class=" alert alert-info" th:each="tourist : ${tourists}">
         <a th:href="'allTourist/'+${tourist.getId()}">
-            Nazwisko  <h3 class="alert-heading" th:text="${tourist.getLastname()}"></h3>
+            Last name  <h3 class="alert-heading" th:text="${tourist.getLastname()}"></h3>
         </a>
     </div>
 </div>
 <div style="text-align: center">
-    <button  onclick="javascript:location.href = '/addTourist'" class="btn btn-primary">Dodaj nowego turystę</button>
+    <button  onclick="javascript:location.href = '/addTourist'" class="btn btn-primary">Add a tourist </button>
 </div>
 
 <div style="text-align: center">
-    <button onclick="javascript:location.href = '/'" class="btn btn-success">Powrót do WelcomePage</button>
+    <button onclick="javascript:location.href = '/'" class="btn btn-success">Menu</button>
 </div>
 
 

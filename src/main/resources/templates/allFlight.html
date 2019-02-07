@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Lista lotów</title>
+    <title>List of flights</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -10,10 +10,10 @@
 <div style="text-align: center">
     <div class="alert alert-success">
         <h1>
-            <strong>Lista lotów</strong>
+            <strong>List of flights</strong>
         </h1>
         <h6>
-            <strong>(Kliknij na lot, aby wyświetlić szczegóły )</strong>
+            <strong>(Click on the flight to display the more information )</strong>
         </h6>
     </div>
 </div>
@@ -32,16 +32,16 @@
 <div style="width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto; text-align: center">
     <div class=" alert alert-info" th:each="flight : ${flights}">
         <a th:href="'allFlight/'+${flight.getId()}">
-            Lot  <h3 class="alert-heading" th:text="${flight.getId()}"></h3>
+            Flight  <h3 class="alert-heading" th:text="${flight.getId()}"></h3>
         </a>
     </div>
 </div>
 <div style="text-align: center">
-    <button  onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Dodaj nowy lot</button>
+    <button  onclick="javascript:location.href = '/addFlight'" class="btn btn-primary">Add a flight</button>
 </div>
 
 <div style="text-align: center">
-    <button onclick="javascript:location.href = '/'" class="btn btn-success">Powrót do WelcomePage</button>
+    <button onclick="javascript:location.href = '/'" class="btn btn-success">Menu</button>
 </div>
 
 
