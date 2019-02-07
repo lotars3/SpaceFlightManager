@@ -32,7 +32,7 @@ public class TouristController{
     public String addTourist(@ModelAttribute("touristForm") TouristEntity touristEntity,
                              RedirectAttributes redirectAttributes) {
         touristService.saveTourist(touristEntity);
-        redirectAttributes.addFlashAttribute("touristAdd", " Turysta został dodany");
+        redirectAttributes.addFlashAttribute("touristAdd", " Tourist Add ");
         return "redirect:/allTourist";
     }
 
@@ -55,7 +55,7 @@ public class TouristController{
     public String deleteTourist(@PathVariable("touristId") int touristId,
                                 RedirectAttributes redirectAttributes) {
         touristService.deleteTourist(touristId);
-        redirectAttributes.addFlashAttribute("touristDeleted", " Turysta został usunięty");
+        redirectAttributes.addFlashAttribute("touristDeleted", " Tourist Deleted");
         return "redirect:/allTourist";
     }
 
@@ -77,7 +77,7 @@ public class TouristController{
                               RedirectAttributes redirectAttributes) {
 
         touristService.saveUpdateTourist(touristForm, touristId);
-        redirectAttributes.addFlashAttribute("touristUpdate", "Dane turysty zostały poprawione");
+        redirectAttributes.addFlashAttribute("touristUpdate", "Tourist Update");
         return "redirect:/allTourist/" + touristId;
     }
 
@@ -92,7 +92,7 @@ public class TouristController{
                                      @RequestParam("flightId") int flightId,
                                      RedirectAttributes redirectAttributes) {
         touristService.addFlightToTourist(touristId, flightId);
-        redirectAttributes.addFlashAttribute("touristAdd", " Lot został przypisany do turysty");
+        redirectAttributes.addFlashAttribute("touristAdd", " Add Flight To Tourist");
 
         return "redirect:/allTourist/" + touristId;
 

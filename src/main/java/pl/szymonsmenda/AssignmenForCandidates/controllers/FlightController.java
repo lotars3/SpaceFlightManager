@@ -35,7 +35,7 @@ public class FlightController{
     public String addFlight(@ModelAttribute("flightForm") FlightForm flightForm,
                             RedirectAttributes redirectAttributes) {
         flightService.addFlight(flightForm);
-        redirectAttributes.addFlashAttribute("flightAdd", " Lot został dodany");
+        redirectAttributes.addFlashAttribute("flightAdd", "Flight Add Success");
         return "redirect:/allFlight";
     }
 
@@ -58,7 +58,7 @@ public class FlightController{
     public String deleteFlight(@PathVariable("flightId") int flightId,
                                RedirectAttributes redirectAttributes) {
         flightService.deleteFlight(flightId);
-        redirectAttributes.addFlashAttribute("flightDeleted", " Lot został usunięty");
+        redirectAttributes.addFlashAttribute("flightDeleted", " Flight Deleted Success");
         return "redirect:/allFlight";
     }
 
@@ -80,7 +80,7 @@ public class FlightController{
                              RedirectAttributes redirectAttributes) {
 
         flightService.saveUpdateFlight(flightForm, flightId);
-        redirectAttributes.addFlashAttribute("flightUpdate", "Dane lotu zostały poprawione");
+        redirectAttributes.addFlashAttribute("flightUpdate", "Flight Update Success");
         return "redirect:/allFlight/" + flightId;
 
 
